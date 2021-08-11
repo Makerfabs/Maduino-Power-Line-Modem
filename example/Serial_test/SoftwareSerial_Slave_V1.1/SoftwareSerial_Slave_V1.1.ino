@@ -39,18 +39,26 @@ void setup()
   //mySerial.println("Hello, world?");
 }
 
+uint32_t i=0;
 void loop() // run over and over
 {
+  i++;
   if (mySerial.available())
   {
     delay(2);
     Serial.write(mySerial.read());
     //Serial.print(mySerial.readString());
   }
+  
+  /**
   if (Serial.available())
   {
     delay(2);
     mySerial.write(Serial.read());
     //mySerial.print(Serial.readString());
   }
+  **/
+  mySerial.print("Hello, Makerfabs? #");
+  mySerial.println(i);
+  delay(1000);
 }
